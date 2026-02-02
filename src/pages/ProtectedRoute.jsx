@@ -6,13 +6,15 @@ axios.defaults.withCredentials = true;
 
 const ProtectedRoute = ({ type }) => {
   const [loading, setLoading] = useState(true);
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const [isAuth, setIsAuth] = useState(false);
 
   useEffect(() => {
     const url =
       type === "food-partner"
-        ? "https://backend-reel-app-server.onrender.com/api/auth/check/food-partner"
-        : "https://backend-reel-app-server.onrender.com/api/auth/check/user";
+        ? `${API_URL}/api/auth/check/food-partner`
+        : `${API_URL}/api/auth/check/user`;
 
     axios
       .get(url)

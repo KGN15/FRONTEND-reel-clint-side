@@ -22,6 +22,8 @@ axios.defaults.withCredentials = true;
 
 const Videos = () => {
   const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const videoRefs = useRef([]);
   const lastTap = useRef(0);
 
@@ -45,7 +47,7 @@ const Videos = () => {
 
     const fetchVideos = async () => {
       try {
-        const res = await axios.get("https://backend-reel-app-server.onrender.com/api/food");
+        const res = await axios.get(`${API_URL}/api/food`);
         const items = res.data.foodIteam || [];
         const lc = {}, sc = {}, cc = {}, lk = {}, sv = {};
         items.forEach(v => {
@@ -102,7 +104,7 @@ const Videos = () => {
     // 2 Backend API call
     try {
       await axios.post(
-        "https://backend-reel-app-server.onrender.com/api/food/like",
+        `${API_URL}/api/food/like`,
         { foodID: id },  // 
         { withCredentials: true }
       );
@@ -146,7 +148,7 @@ const Videos = () => {
     }));
 
     try {
-      await axios.post("https://backend-reel-app-server.onrender.com/api/food/save", { foodID: id }, { withCredentials: true });
+      await axios.post(`${API_URL}/api/food/save`, { foodID: id }, { withCredentials: true });
     } catch (err) {
       console.error("Save failed", err);
       setSaved(p => ({ ...p, [id]: alreadySaved }));

@@ -11,6 +11,8 @@ const FoodPartnerRegisterPage = () => {
 
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const API_URL = import.meta.env.VITE_API_URL;
+
     const [error, setError] = useState("");
 
     const handleSubmit = async (e) => {
@@ -34,7 +36,7 @@ const FoodPartnerRegisterPage = () => {
 
         try {
             const res = await axios.post(
-                "https://backend-reel-app-server.onrender.com/api/auth/food-partner/register",
+                `${API_URL}/api/auth/food-partner/register`,
                 { name, email, password, address },
                 { withCredentials: true }
             );

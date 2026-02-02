@@ -14,6 +14,8 @@ import LogOut from "../components/LogOut";
 const CreateFood = () => {
   const navigate = useNavigate();
   const fileInputRef = useRef(null);
+  const API_URL = import.meta.env.VITE_API_URL;
+
 
   const [step, setStep] = useState("create");
   const [videoFile, setVideoFile] = useState(null);
@@ -63,7 +65,7 @@ const CreateFood = () => {
       formData.append("description", description);
 
       await axios.post(
-        "https://backend-reel-app-server.onrender.com/api/food",
+        `${API_URL}/api/food`,
         formData,
         { withCredentials: true }
       );

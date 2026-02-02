@@ -3,7 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import BackToHome from "../components/BackToHome";
 import PrimaryButton from "../components/PrimaryButton";
+
+
 const UserLoginPage = () => {
+    const API_URL = import.meta.env.VITE_API_URL;
     const navigate = useNavigate();
 
     const [showPassword, setShowPassword] = useState(false);
@@ -22,7 +25,7 @@ const UserLoginPage = () => {
 
         try {
             await axios.post(
-                "https://backend-reel-app-server.onrender.com/api/auth/user/login",
+                `${API_URL}/api/auth/user/login`,
                 { email, password },
                 { withCredentials: true }
             );

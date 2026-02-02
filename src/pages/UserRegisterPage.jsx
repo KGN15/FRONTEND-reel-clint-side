@@ -5,6 +5,7 @@ import BackToHome from "../components/BackToHome";
 import PrimaryButton from "../components/PrimaryButton";
 const UserRegisterPage = () => {
     const navigate = useNavigate();
+const API_URL = import.meta.env.VITE_API_URL;
 
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -30,7 +31,7 @@ const UserRegisterPage = () => {
 
         try {
             await axios.post(
-                "https://backend-reel-app-server.onrender.com/api/auth/user/register",
+                `${API_URL}/api/auth/user/register`,
                 { fullName, email, password },
                 { withCredentials: true }
             );

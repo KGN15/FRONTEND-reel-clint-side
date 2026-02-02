@@ -5,13 +5,15 @@ import axios from "axios";
 
 const Saved = () => {
   const [videos, setVideos] = useState([]);
+  const API_URL = import.meta.env.VITE_API_URL;
+
 
   // Fetch saved videos
   useEffect(() => {
     const fetchSavedVideos = async () => {
       try {
         const res = await axios.get(
-          "https://backend-reel-app-server.onrender.com/api/food/save",
+          `${API_URL}/api/food/save`,
           { withCredentials: true }
         );
 

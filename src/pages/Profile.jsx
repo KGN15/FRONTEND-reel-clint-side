@@ -9,10 +9,12 @@ const ProfilePage = () => {
   const [profile, setProfile] = useState(null); // start as null
   const [loading, setLoading] = useState(true);
   const [vidios,setVidios] = useState([])
+  const API_URL = import.meta.env.VITE_API_URL;
+
 
   useEffect(() => {
     axios
-      .get(`https://backend-reel-app-server.onrender.com/api/food-partner/${id}`, { withCredentials: true })
+      .get(`${API_URL}/api/food-partner/${id}`, { withCredentials: true })
       .then((res) => {
         setProfile(res.data.foodPartner || res.data); // backend structure check
         setLoading(false);
