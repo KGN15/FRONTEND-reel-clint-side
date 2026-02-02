@@ -1,0 +1,66 @@
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000000e6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  color: white;
+}
+
+/* SVG container */
+.loader-svg {
+  background-color: transparent;
+  border-radius: 50%;
+  animation: spin 3s ease infinite alternate;
+}
+
+/* dots */
+.shape {
+  r: 20;
+  animation: movein 3s ease infinite alternate;
+}
+
+.dot1 {
+  cx: 50;
+  cy: 50;
+  fill: #c20f00;
+}
+.dot2 {
+  cx: 150;
+  cy: 50;
+  fill: #ffdd22;
+}
+.dot3 {
+  cx: 50;
+  cy: 150;
+  fill: #2374c6;
+}
+.dot4 {
+  cx: 150;
+  cy: 150;
+  fill: #ffffff;
+}
+
+.loader-text {
+  margin-top: 25px;
+  font-size: 15px;
+  text-align: center;
+  opacity: 0.85;
+}
+
+/* animations */
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes movein {
+  to {
+    cx: 100;
+    cy: 100;
+  }
+}
