@@ -28,7 +28,7 @@ const ProtectedRoute = ({ type }) => {
       });
   }, [type]);
 
-  if (loading) return <div>Checking auth...</div>;
+  if (loading) return <div className="text-center h-screen w-full bg-[#000] text-[#fff] text-9xl">Checking auth...</div>;
 
   return isAuth ? <Outlet /> : <Navigate to="/login" replace />;
 };

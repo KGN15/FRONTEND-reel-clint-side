@@ -11,6 +11,7 @@ import Profile from './pages/Profile'
 import Saved from './pages/Saved';
 import NotFound from './pages/NotFound';
 import ProtectedRoute from './pages/ProtectedRoute';
+import A from './pages/A';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/register" element={<UserRegisterPage />} />
         <Route path="/partner/login" element={<FoodPartnerLoginPage />} />
         <Route path="/partner/register" element={<FoodPartnerRegisterPage />} />
+        <Route path="/a" element={<A />} />
         <Route path="*" element={<NotFound />} />
 
         <Route element={<ProtectedRoute type="food-partner" />}>
